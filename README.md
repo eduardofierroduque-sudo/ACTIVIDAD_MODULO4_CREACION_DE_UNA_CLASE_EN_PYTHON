@@ -13,6 +13,32 @@ PERO NOTE QUE EL RESULTADO DEL LISTADO DE LOS LIBROS QUEDA PERDIDA MAS ALLA DE S
 <img width="1426" height="604" alt="image" src="https://github.com/user-attachments/assets/ab00d480-8ee2-480c-8db0-2cff23656283" />
 <img width="1730" height="895" alt="image" src="https://github.com/user-attachments/assets/9de609d2-439e-4653-b083-468077ec00a6" />
 
+AÑADÍ UN BLOQUE DE CÓDIGO DENTRO DE LA CLASE BIBLIOTECA APROX ENTRE LA LINEA 43 Y 56 
+ESTA ES LA LINEA QUE PERMITE LA EXPORTACIÓN:
+# --- BLOQUE NUEVO: Método para exportar ---
+    def exportar_a_txt(self, nombre_archivo="lista_biblioteca.txt"):
+        try:
+            with open(nombre_archivo, "w", encoding="utf-8") as archivo:
+                archivo.write("REPORTE DE BIBLIOTECA\n")
+                archivo.write("="*50 + "\n")
+                for libro in self.libros:
+                    archivo.write(f"TÍTULO: {libro.get_titulo()}\n")
+                    archivo.write(f"AUTOR:  {libro.get_autor()}\n")
+                    archivo.write(f"PÁGINAS: {libro.get_paginas()}\n")
+                    archivo.write("-" * 30 + "\n")
+            print(f"\n✅ Archivo '{nombre_archivo}' generado con éxito.")
+        except Exception as e:
+            print(f"Error al crear el archivo: {e}")
+# Y FINALMENTE EN LA ULTIMA LINEA DEL CODIGO AÑADÍ LA INSTRUCCIÓN PARA GENERAR LA CREACIÓN DEL ARCHIVO
+
+# --- LÍNEA NUEVA: Llamada a la exportación ---
+    mi_biblioteca.exportar_a_txt("mis_libros.txt")
+
+
+        
+
+
+
 
 
 
